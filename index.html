@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLT Meta Ads Campaign — 704 Summer Classic 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  :root {
+    --orange: #E85D10;
+    --gold: #F5B800;
+    --green: #1E6B3C;
+    --purple: #5B2D8E;
+    --bg: #F8F4EE;
+    --surface: #FFFFFF;
+    --surface2: #F2EDE6;
+    --border: #E0D8CE;
+    --text: #1A1A1A;
+    --muted: #7A7068;
+    --label: #9A8E84;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #F8F4EE;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 40px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .brand { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+  .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-top: 4px; }
+  .header-meta { display: flex; gap: 20px; margin-top: 12px; flex-wrap: wrap; }
+  .meta-pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: var(--muted); }
+  .meta-pill span { color: var(--text); font-weight: 600; }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .main { padding: 40px 0 80px; }
+
+  /* STRATEGY BLOCK */
+  .strategy {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--orange);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+  .strategy h2 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .strategy-item { display: flex; gap: 10px; align-items: flex-start; }
+  .strategy-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); margin-top: 6px; flex-shrink: 0; }
+  .strategy-item p { font-size: 12.5px; color: #555555; line-height: 1.5; }
+
+  /* EVENT NAV */
+  .event-nav { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
+  .event-nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .event-nav-btn:hover { border-color: var(--orange); color: var(--text); }
+  .event-nav-btn.active { background: var(--orange); border-color: var(--orange); color: white; }
+
+  /* EVENT SECTION */
+  .event-section { display: none; }
+  .event-section.active { display: block; }
+
+  .event-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 20px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .event-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; }
+  .event-budget { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: var(--orange); }
+
+  .event-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+  .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .info-card .label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--label); margin-bottom: 4px; }
+  .info-card .value { font-size: 13px; color: var(--text); font-weight: 500; }
+
+  /* AD SETS */
+  .adset { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+  .adset-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; cursor: pointer; user-select: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .adset-header:hover { background: #EDE8E2; }
+  .adset-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; }
+  .adset-meta { display: flex; gap: 10px; align-items: center; }
+  .adset-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .badge-broad { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+  .badge-core { background: #EEF0FA; color: #3949AB; border: 1px solid #9FA8DA; }
+  .badge-retarget { background: #FFF3E0; color: #E65100; border: 1px solid #FFCC80; }
+  .adset-chevron { color: var(--muted); font-size: 16px; transition: transform 0.2s; }
+  .adset-chevron.open { transform: rotate(180deg); }
+  .adset-body { padding: 20px; display: none; }
+  .adset-body.open { display: block; }
+
+  .targeting-block { background: var(--surface2); border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; }
+  .targeting-block .label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--label); margin-bottom: 6px; }
+  .targeting-block p { font-size: 12.5px; color: #666666; }
+
+  /* ADS */
+  .ad-block { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+  .ad-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: var(--surface2); cursor: pointer; }
+  .ad-header:hover { background: #EDE8E2; }
+  .ad-name { font-size: 13px; font-weight: 600; }
+  .ad-type-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+  .type-flyer { background: #EDF3FF; color: #3563C4; }
+  .type-reel { background: #F3EEFF; color: #6B3FCC; }
+  .type-video { background: #FFEEEE; color: #C43535; }
+  .ad-body { padding: 18px; display: none; }
+  .ad-body.open { display: block; }
+
+  .copy-field { margin-bottom: 20px; }
+  .copy-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--label); margin-bottom: 8px; }
+  .copy-main { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-size: 13px; color: var(--text); line-height: 1.7; white-space: pre-wrap; position: relative; }
+  .copy-btn { position: absolute; top: 10px; right: 10px; background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 11px; color: var(--muted); cursor: pointer; font-family: 'Inter', sans-serif; }
+  .copy-btn:hover { color: #1A1A1A; border-color: var(--orange); }
+  .copy-btn.copied { color: #4CAF50; border-color: #4CAF50; }
+
+  .alts-toggle { font-size: 11px; font-weight: 600; color: var(--orange); cursor: pointer; margin-top: 8px; display: inline-block; }
+  .alts-list { display: none; margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .alts-list.open { display: flex; }
+  .alt-item { background: var(--surface2); border: 1px solid var(--border); border-left: 2px solid var(--orange); border-radius: 6px; padding: 10px 14px; font-size: 12.5px; color: #555555; line-height: 1.6; position: relative; }
+
+  .note-block { background: #FFFBEA; border: 1px solid #F0D060; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #856A00; }
+
+  /* INTERESTS */
+  .interests-section { margin-top: 32px; }
+  .interests-section h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--label); margin-bottom: 12px; }
+  .interests-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .interest-tag { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 12px; color: var(--muted); }
+
+  /* BUDGET TABLE */
+  .budget-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+  .budget-table th { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--label); text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+  .budget-table td { padding: 10px 12px; font-size: 13px; border-bottom: 1px solid var(--border); }
+  .budget-table tr:last-child td { border-bottom: none; }
+  .budget-total td { font-weight: 700; color: var(--orange); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 20px 16px 16px; }
+    .container { padding: 0 16px; }
+    .event-info-grid { grid-template-columns: 1fr 1fr; }
+    .strategy-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 18px; }
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F8F4EE; }
+  ::-webkit-scrollbar-thumb { background: #C8BDB4; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="header-top">
+      <div>
+        <div class="brand">Better Luck TMRW</div>
+        <h1>Meta Ads Campaign — 704 Summer Classic Weekend</h1>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:28px;font-weight:900;font-family:'Space Grotesk',sans-serif;color:var(--orange)">$1,100</div>
+        <div style="font-size:11px;color:var(--muted)">Total Budget · ABO</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-pill">Campaign Start: <span>June 28, 2026</span></div>
+      <div class="meta-pill">Location: <span>Charlotte, NC</span></div>
+      <div class="meta-pill">Objective: <span>Traffic → Posh.vip</span></div>
+      <div class="meta-pill">Structure: <span>1 Campaign · 4 Ad Sets</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+<div class="container">
+
+  <!-- STRATEGY -->
+  <div class="strategy">
+    <h2>Campaign Strategy</h2>
+    <div class="strategy-grid">
+      <div class="strategy-item"><div class="strategy-dot"></div><p>Launch all Broad ad sets tonight (June 28) with flyers. Core ad sets go live June 29.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p>Warm Retarget launches Day 3–4 per event — Meta needs time to build the retarget pool.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p><strong style="color:var(--text)">Day 2 Rule:</strong> If video CPP leads flyer by &gt;20% → pause flyer. Within 20% → let both run, reassess Day 4–5.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p>Kill any ad with CPP above $4.00 by Day 3.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p>LND runs Broad + Warm Retarget only — budget too thin to split three ways.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p>Use Advantage+ Audience on all Broad ad sets — outperforming manual targeting in 2026.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p>Swap in full reels as they arrive from the editor — no need to pause campaigns.</p></div>
+      <div class="strategy-item"><div class="strategy-dot"></div><p>Turn off ads at least 1 hour before each event starts to avoid wasting budget.</p></div>
+    </div>
+  </div>
+
+  <!-- BUDGET SUMMARY -->
+  <table class="budget-table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Broad</th>
+        <th>Core</th>
+        <th>Retarget</th>
+        <th>Total</th>
+        <th>Ad End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:600">Brown Sugar</td>
+        <td style="color:var(--muted)">July 3</td>
+        <td>$90</td><td>$110</td><td>$50</td>
+        <td style="font-weight:600;color:var(--orange)">$250</td>
+        <td style="color:var(--muted)">11:59PM Jul 2</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">704EVER Cookout</td>
+        <td style="color:var(--muted)">July 4</td>
+        <td>$150</td><td>$175</td><td>$75</td>
+        <td style="font-weight:600;color:var(--orange)">$400</td>
+        <td style="color:var(--muted)">1PM Jul 4</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">Legends Never Die</td>
+        <td style="color:var(--muted)">July 4</td>
+        <td>$120</td><td>—</td><td>$80</td>
+        <td style="font-weight:600;color:var(--orange)">$200</td>
+        <td style="color:var(--muted)">8PM Jul 4</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">Dutty Wine</td>
+        <td style="color:var(--muted)">July 5</td>
+        <td>$90</td><td>$110</td><td>$50</td>
+        <td style="font-weight:600;color:var(--orange)">$250</td>
+        <td style="color:var(--muted)">3PM Jul 5</td>
+      </tr>
+      <tr class="budget-total">
+        <td colspan="5" style="font-size:13px;color:var(--muted)">Total Campaign Budget</td>
+        <td style="font-size:18px">$1,100</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EVENT NAV -->
+  <div class="event-nav">
+    <button class="event-nav-btn active" onclick="showEvent('bs', this)">Brown Sugar</button>
+    <button class="event-nav-btn" onclick="showEvent('cookout', this)">704EVER Cookout</button>
+    <button class="event-nav-btn" onclick="showEvent('lnd', this)">Legends Never Die</button>
+    <button class="event-nav-btn" onclick="showEvent('dutty', this)">Dutty Wine</button>
+  </div>
+
+  <!-- ── BROWN SUGAR ─────────────────────────────────────────────────────── -->
+  <div class="event-section active" id="ev-bs">
+    <div class="event-header">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px">Event 01</div>
+        <div class="event-title">Brown Sugar Rooftop Party</div>
+      </div>
+      <div class="event-budget">$250</div>
+    </div>
+    <div class="event-info-grid">
+      <div class="info-card"><div class="label">Date & Time</div><div class="value">Friday, July 3 · 9PM–1AM</div></div>
+      <div class="info-card"><div class="label">Venue</div><div class="value">Platform Sports · 3216 South Blvd</div></div>
+      <div class="info-card"><div class="label">Ticket Link</div><div class="value" style="font-size:11px;word-break:break-all"><a href="https://posh.vip/e/704ever-weekend-2026-7-6-1-0" style="color:var(--orange)">posh.vip/e/704ever-weekend-2026-7-6-1-0</a></div></div>
+    </div>
+
+    <!-- Broad -->
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="adset-title">Ad Set 1 — Broad</div>
+          <span class="adset-badge badge-broad">Advantage+</span>
+          <span style="font-size:12px;color:var(--muted)">$90 · Jun 28 – Jul 3 · Age 23–40 · 25mi</span>
+        </div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Advantage+ Audience — No manual interests. Location: Charlotte, NC 25mi radius. Age: 23–40.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)">
+            <span class="ad-name">Ad 1 — Flyer (Static)</span>
+            <span class="ad-type-badge type-flyer">Flyer · Ready</span>
+          </div>
+          <div class="ad-body">
+            <div class="copy-field">
+              <div class="copy-label">Primary Text</div>
+              <div class="copy-main" style="position:relative">Charlotte, the rooftop is calling you back. 🤎
+
+Brown Sugar Rooftop Party is back to kick off Fourth of July Weekend. Warm summer nights, the Charlotte skyline, elevated fits, and a room full of real ones.
+
+This is the one you don't want to miss. 🗓️ Friday, July 3 | 9PM–1AM<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">The rooftop experience Charlotte's been asking about is back. 🤎 Brown Sugar returns July 3 to officially open 704 Summer Classic Weekend. Clean fits. Soulful music. Rooftop views. Friday, July 3 | 9PM–1AM | Platform Sports</div>
+                <div class="alt-item">Grown & sexy. Rooftop ready. Brown Sugar Rooftop Party kicks off 4th of July Weekend at Platform Sports. 🤎 The vibes are curated. The fits are elevated. The energy is unmatched. Get your tickets now.</div>
+                <div class="alt-item">Charlotte's favorite rooftop experience is back for the holiday weekend. 🌆 Brown Sugar | July 3 | 9PM | Platform Sports. Dress Code: Brown • Orange • Burgundy • Mustard.</div>
+                <div class="alt-item">If you've been asking 'when is Brown Sugar coming back?' — the answer is July 3. 🤎 Rooftop views. 4 DJs. Live Sax. Holiday weekend energy. Tickets on sale now.</div>
+                <div class="alt-item">Start your 4th of July Weekend right. Brown Sugar Rooftop Party | Friday, July 3 | 9PM–1AM | Platform Sports Charlotte. Grown energy. Soulful sounds. City views. 🏙️</div>
+              </div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-label">Headline</div>
+              <div class="copy-main" style="position:relative">Brown Sugar Rooftop Party 🤎<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">Charlotte's Rooftop Is Calling 🤎</div>
+                <div class="alt-item">Fourth of July Weekend Starts Here</div>
+                <div class="alt-item">Grown & Sexy Rooftop Experience</div>
+                <div class="alt-item">July 3 | Platform Sports | 9PM</div>
+                <div class="alt-item">The Kickoff to 704 Summer Classic</div>
+              </div>
+            </div>
+            <div class="copy-field">
+              <div class="copy-label">Description</div>
+              <div class="copy-main" style="position:relative">Friday, July 3 | 9PM–1AM | Platform Sports, Charlotte<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">Get tickets now — Brown Sugar is back for the holiday weekend</div>
+                <div class="alt-item">4 DJs • Live Sax • Rooftop Views • Brown Sugar Dress Code</div>
+                <div class="alt-item">July 3 | 9PM | Platform Sports | Tickets via Posh</div>
+                <div class="alt-item">Charlotte's best rooftop party returns for 4th of July Weekend</div>
+                <div class="alt-item">Dress Code: Brown • Orange • Burgundy • Mustard</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)">
+            <span class="ad-name">Ad 2 — 30 Sec Hype Reel</span>
+            <span class="ad-type-badge type-reel">Boost Existing Post</span>
+          </div>
+          <div class="ad-body"><div class="note-block">Boost existing Instagram post. No additional copy required. Use post engagement as social proof.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core -->
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="adset-title">Ad Set 2 — Core</div>
+          <span class="adset-badge badge-core">Interest Based</span>
+          <span style="font-size:12px;color:var(--muted)">$110 · Jun 29 – Jul 3 · Age 23–40 · 35mi</span>
+        </div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Saved Audience — Interests: R&B music, Neo-soul, Rooftop bars, Charlotte nightlife, Afrobeats, Beyoncé, Summer events, Things to do in Charlotte, 4th of July. Age: 23–40. Charlotte, NC 35mi.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Flyer (Static)</span><span class="ad-type-badge type-flyer">Flyer · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">The rooftop experience Charlotte keeps asking about is BACK for 4th of July Weekend. 🤎
+
+Brown Sugar Rooftop Party | July 3 | 9PM–1AM | Platform Sports
+
+Dress Code: Brown • Orange • Burgundy • Mustard
+Live Sax • 4 DJs • Charlotte Skyline Views
+
+Tickets on sale now — grab yours before they're gone.<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">Brown Sugar is the vibe Charlotte needed for the holiday weekend. 🤎 Rooftop energy. Soulful sounds. Elevated fits. July 3 | 9PM | Platform Sports. Tickets available now on Posh.</div>
+                <div class="alt-item">Rooftop views. Rich earth tones. R&B, Hip-Hop & Neo-Soul from 4 DJs all night. 🌆 Brown Sugar kicks off 704 Summer Classic Weekend on July 3. Get your tickets now.</div>
+                <div class="alt-item">This Fourth of July, start the weekend right. Brown Sugar Rooftop Party | July 3 | 9PM | Platform Sports Charlotte. Grown & gorgeous energy all night. 🤎</div>
+                <div class="alt-item">If you love R&B, rooftop views, and a room full of people who showed up for real — Brown Sugar is for you. 🏙️ July 3 | 9PM–1AM | Charlotte. Grab your tickets now.</div>
+                <div class="alt-item">Charlotte's most elevated rooftop experience is back for the holiday. 🤎 Brown Sugar | July 3 | Platform Sports. Dress code enforced. Tickets on Posh.</div>
+              </div>
+            </div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Charlotte's Rooftop Party Is Back 🤎<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 3 | 9PM–1AM | Platform Sports | Brown • Orange • Burgundy • Mustard<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 2 — Short Event Clip</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">This is what Brown Sugar looks like. 🤎
+
+Charlotte's grown & sexy rooftop experience is back for 4th of July Weekend. The fits. The views. The energy. All of it.
+
+July 3 | 9PM–1AM | Platform Sports | Tickets on Posh now.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Brown Sugar Is Back July 3 🤎<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">Friday, July 3 | 9PM–1AM | Platform Sports | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Retarget -->
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="adset-title">Ad Set 3 — Warm Retarget</div>
+          <span class="adset-badge badge-retarget">Custom Audience</span>
+          <span style="font-size:12px;color:var(--muted)">$50 · Jul 1 – Jul 3</span>
+        </div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Custom Audiences: IG profile visitors (30d), video viewers 50%+, Posh link clicks, BLT post engagement (30d). Age: 23–40.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Short Clip (Urgency)</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Charlotte's rooftop is calling and July 3rd is almost here. 🤎 Brown Sugar Rooftop Party | Friday, July 3 | 9PM–1AM | Platform Sports. Spots are going fast — don't be the one trying to get in at the door. Grab your ticket now on Posh.<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">July 3rd is this Friday and Brown Sugar always sells out. 🤎 Platform Sports rooftop. 4 DJs. Live Sax. Charlotte skyline. This is the holiday weekend kickoff Charlotte has been waiting for. Get your ticket now before it's gone.</div>
+                <div class="alt-item">The 4th of July Weekend starts Friday and the rooftop is almost full. 🤎 Brown Sugar | July 3 | 9PM | Platform Sports Charlotte. Grown & sexy energy all night. Prices go up at the door — secure your spot now on Posh.</div>
+                <div class="alt-item">Charlotte's most elevated rooftop experience is happening July 3rd with or without you. 🤎 Brown Sugar | 9PM | Platform Sports. Dress code. 4 DJs. Live Sax. City views. Tickets on Posh — grab yours before they're gone.</div>
+                <div class="alt-item">Friday night on the rooftop is the only place to be for the holiday weekend. 🤎 Brown Sugar | July 3 | 9PM–1AM | Platform Sports Charlotte. Tickets are moving — don't wait until it's too late.</div>
+                <div class="alt-item">July 3rd is two days away and Brown Sugar tickets won't last. 🤎 Platform Sports rooftop | 9PM–1AM | Charlotte. The holiday weekend kicks off here. Lock in your spot now on Posh.</div>
+              </div>
+            </div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">This Friday — Don't Miss It 🤎<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 3 | 9PM–1AM | Platform Sports | Tickets on Posh now<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="interests-section">
+      <h3>Saved Audience — Suggested Interests (Core Ad Set)</h3>
+      <div class="interests-grid">
+        <span class="interest-tag">R&B music</span><span class="interest-tag">Neo-soul</span><span class="interest-tag">Rooftop bars</span><span class="interest-tag">Charlotte nightlife</span><span class="interest-tag">Day parties</span><span class="interest-tag">Afrobeats</span><span class="interest-tag">Hip-hop</span><span class="interest-tag">Beyoncé</span><span class="interest-tag">Summer events</span><span class="interest-tag">Charlotte restaurants</span><span class="interest-tag">Things to do in Charlotte</span><span class="interest-tag">4th of July events</span><span class="interest-tag">Grown and sexy events</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 704EVER COOKOUT ──────────────────────────────────────────────────── -->
+  <div class="event-section" id="ev-cookout">
+    <div class="event-header">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:4px">Event 02</div>
+        <div class="event-title">704EVER "The Cookout"</div>
+      </div>
+      <div class="event-budget" style="color:var(--green)">$400</div>
+    </div>
+    <div class="event-info-grid">
+      <div class="info-card"><div class="label">Date & Time</div><div class="value">Saturday, July 4 · 3PM–9PM</div></div>
+      <div class="info-card"><div class="label">Venue</div><div class="value">Pinhouse · 2306 Central Ave</div></div>
+      <div class="info-card"><div class="label">Ticket Link</div><div class="value" style="font-size:11px;word-break:break-all"><a href="https://posh.vip/e/704ever-weekend-2026-7-7-1-0" style="color:var(--orange)">posh.vip/e/704ever-weekend-2026-7-7-1-0</a></div></div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 1 — Broad</div><span class="adset-badge badge-broad">Advantage+</span><span style="font-size:12px;color:var(--muted)">$150 · Jun 28 – Jul 4 · Age 21–38 · 30mi</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Advantage+ Audience. Location: Charlotte, NC 30mi radius. Age: 21–38.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Flyer (Static)</span><span class="ad-type-badge type-flyer">Flyer · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">For those who know… July 4th isn't just Independence Day. It's 704 Day. ❤️🤍💙
+
+Charlotte's July 4th cookout is here. Food. Music. Drinks. Dancing. The whole city together.
+
+704EVER "The Cookout" | Saturday, July 4 | 3PM–9PM | Pinhouse, Charlotte
+
+Tickets on sale now.<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">July 4th in Charlotte belongs to one event. 704EVER "The Cookout" — the neighborhood cookout BLT was born to throw. 🍔🎶 Saturday, July 4 | 3PM–9PM | Pinhouse. Tickets on Posh now.</div>
+                <div class="alt-item">Grills hot. Drinks cold. DJs outside. The whole city showing up. 🔥 704EVER "The Cookout" | July 4 | 3PM–9PM | Pinhouse Charlotte. Get your tickets now.</div>
+                <div class="alt-item">This is where Charlotte spends July 4th. 704EVER "The Cookout" | Saturday, July 4 | 3PM–9PM | Pinhouse. Food vendors. Multiple DJs. Outdoor dancing. Tickets available now.</div>
+                <div class="alt-item">704 Day is a Charlotte thing. And this year, we're celebrating it the right way. 🍔🎶❤️ 704EVER Cookout | July 4 | 3PM | Pinhouse CLT. Get your tickets on Posh.</div>
+                <div class="alt-item">The city's biggest July 4th cookout is here. Food trucks. Multiple DJs. Outdoor dancing. The Queen City together on its day. 704EVER | July 4 | 3PM | Pinhouse Charlotte.</div>
+              </div>
+            </div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">704 Day Is Here 🇺🇸🔥<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">Saturday, July 4 | 3PM–9PM | Pinhouse | Charlotte, NC<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 2 — 30 Sec Hype Reel</span><span class="ad-type-badge type-reel">Boost Existing Post</span></div>
+          <div class="ad-body"><div class="note-block">Boost existing Instagram post. No additional copy required.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 2 — Core</div><span class="adset-badge badge-core">Interest Based</span><span style="font-size:12px;color:var(--muted)">$175 · Jun 29 – Jul 4 · Age 21–38 · 40mi</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Saved Audience — Interests: July 4th, Cookout, Charlotte events, Day parties, Hip-hop, R&B, Food trucks, Block party, Things to do in Charlotte. Age: 21–38. Charlotte, NC 40mi.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Flyer (Static)</span><span class="ad-type-badge type-flyer">Flyer · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Charlotte, this is YOUR July 4th. ❤️🤍💙
+
+704EVER "The Cookout" is the city's biggest July 4th day party — food trucks, smokers, multiple DJs, outdoor dancing, and thousands of people celebrating the Queen City together.
+
+Saturday, July 4 | 3PM–9PM | Pinhouse Charlotte
+
+Tickets on sale now via Posh.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Charlotte's July 4th Cookout 🔥<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 4 | 3PM–9PM | Pinhouse, Charlotte | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 2 — Short Event Clip</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">This is what 704 Day looks like. 🔥
+
+704EVER "The Cookout" is Charlotte's July 4th celebration — food trucks, DJs outside, outdoor dancing, and the whole city showing up together.
+
+Saturday, July 4 | 3PM–9PM | Pinhouse Charlotte. Tickets on Posh now.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">704 Day | July 4 | Pinhouse 🔥<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 4 | 3PM–9PM | Pinhouse Charlotte | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 3 — Warm Retarget</div><span class="adset-badge badge-retarget">Custom Audience</span><span style="font-size:12px;color:var(--muted)">$75 · Jul 1 – Jul 4</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Custom Audiences: IG visitors (30d), video viewers 50%+, Posh link clicks, BLT post engagement (30d). Age: 21–38.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Short Clip (Urgency)</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Charlotte's biggest July 4th cookout is in 3 days and tickets are going. 🔥 704EVER "The Cookout" | July 4 | 3PM–9PM | Pinhouse. Food trucks. Multiple DJs outside. The whole city showing up together. Don't wait — grab your ticket now before prices go up.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">704 Day Is Almost Here 🔥<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 4 | 3PM–9PM | Pinhouse Charlotte | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="interests-section">
+      <h3>Saved Audience — Suggested Interests (Core Ad Set)</h3>
+      <div class="interests-grid">
+        <span class="interest-tag">July 4th</span><span class="interest-tag">Cookout</span><span class="interest-tag">Charlotte events</span><span class="interest-tag">Day parties</span><span class="interest-tag">Hip-hop</span><span class="interest-tag">R&B</span><span class="interest-tag">Charlotte NC</span><span class="interest-tag">Things to do in Charlotte</span><span class="interest-tag">Food festivals</span><span class="interest-tag">Block party</span><span class="interest-tag">Charlotte food trucks</span><span class="interest-tag">Local Charlotte events</span><span class="interest-tag">704</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LEGENDS NEVER DIE ───────────────────────────────────────────────── -->
+  <div class="event-section" id="ev-lnd">
+    <div class="event-header">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin-bottom:4px">Event 03</div>
+        <div class="event-title">Legends Never Die R&B Experience</div>
+      </div>
+      <div class="event-budget" style="color:var(--purple)">$200</div>
+    </div>
+    <div style="background:#1A0A2A;border:1px solid #3A1A5A;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:12.5px;color:#BB88DD">
+      ⚠ Running Broad + Warm Retarget only — budget too thin to split across three ad sets. No Core ad set for LND.
+    </div>
+    <div class="event-info-grid">
+      <div class="info-card"><div class="label">Date & Time</div><div class="value">Saturday, July 4 · 9PM–2AM</div></div>
+      <div class="info-card"><div class="label">Venue</div><div class="value">ANTHM · 950 NC Music Factory Blvd</div></div>
+      <div class="info-card"><div class="label">Ticket Link</div><div class="value" style="font-size:11px;word-break:break-all"><a href="https://posh.vip/e/704ever-weekend-2026-7-8-1-0" style="color:var(--orange)">posh.vip/e/704ever-weekend-2026-7-8-1-0</a></div></div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 1 — Broad</div><span class="adset-badge badge-broad">Advantage+</span><span style="font-size:12px;color:var(--muted)">$120 · Jun 28 – Jul 4 · Age 25–42 · 30mi</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Advantage+ Audience. Location: Charlotte, NC 30mi radius. Age: 25–42.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Flyer (Static)</span><span class="ad-type-badge type-flyer">Flyer · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Charlotte's favorite R&B sing-along experience is back for 4th of July Weekend — and this time we're taking over TWO FLOORS. 🎤
+
+Upstairs: 80s & 90s R&B Classics
+Downstairs: 2000s & Current R&B
+
+No rap. No trap. Just wall-to-wall R&B all night.
+
+LEGENDS NEVER DIE | Saturday, July 4 | 9PM–2AM | ANTHM Charlotte
+
+Tickets on Posh now.<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">Two floors. One night. Wall-to-wall R&B. 🎤 Legends Never Die returns for 4th of July Weekend at ANTHM. Upstairs: 80s/90s classics. Downstairs: 2000s & current. Saturday, July 4 | 9PM | Charlotte. Tickets on Posh.</div>
+                <div class="alt-item">For the people who don't just listen to R&B — they feel it. 🎤 Legends Never Die | July 4 | 9PM–2AM | ANTHM Charlotte. Two floors of real R&B. No rap. No trap. Just the songs. Tickets now.</div>
+                <div class="alt-item">The best July 4th after-party in Charlotte is here. 🎤 Legends Never Die takes over ANTHM with two floors of R&B — 80s/90s classics upstairs, 2000s & current downstairs. July 4 | 9PM | Tickets on Posh.</div>
+                <div class="alt-item">If you grew up singing Mary J, Usher, Aaliyah, and Beyoncé word for word — Legends Never Die was made for you. 🎤 July 4 | 9PM | ANTHM Charlotte. Two floors of R&B. Tickets on Posh now.</div>
+                <div class="alt-item">Charlotte's sing-along R&B experience is back bigger than ever. Two floors. July 4 Weekend. ANTHM. 🎤 Legends Never Die | Saturday, July 4 | 9PM–2AM. Get your tickets now.</div>
+              </div>
+            </div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Legends Never Die 🎤 July 4<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 4 | 9PM–2AM | ANTHM Charlotte | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 2 — Short Event Clip</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">This is what Legends Never Die feels like. 🎤
+
+Charlotte's R&B sing-along experience takes over two floors at ANTHM for 4th of July Weekend.
+
+Upstairs: 80s & 90s classics. Downstairs: 2000s & current R&B.
+
+Saturday, July 4 | 9PM–2AM | ANTHM Charlotte. Tickets on Posh now.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Two Floors of R&B | July 4 🎤<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 4 | 9PM–2AM | ANTHM Charlotte | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 2 — Warm Retarget</div><span class="adset-badge badge-retarget">Custom Audience</span><span style="font-size:12px;color:var(--muted)">$80 · Jul 1 – Jul 4</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Custom Audiences: IG visitors (30d), video viewers 50%+, Posh link clicks, BLT post engagement. Age: 25–42.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Short Clip (Urgency)</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Saturday night in Charlotte has one destination and tickets are going. 🎤 Legends Never Die R&B Experience | July 4 | 9PM–2AM | ANTHM. Two floors. 80s & 90s upstairs. 2000s & current downstairs. No rap. No trap. Just wall-to-wall R&B all night. Get your ticket now on Posh.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">This Saturday — Don't Miss It 🎤<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 4 | 9PM–2AM | ANTHM Charlotte | Grab your ticket now<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="interests-section">
+      <h3>Suggested Interests (reference for future Core ad set)</h3>
+      <div class="interests-grid">
+        <span class="interest-tag">R&B music</span><span class="interest-tag">80s music</span><span class="interest-tag">90s music</span><span class="interest-tag">2000s R&B</span><span class="interest-tag">Charlotte nightlife</span><span class="interest-tag">Sing-along events</span><span class="interest-tag">Charlotte events</span><span class="interest-tag">Mary J. Blige</span><span class="interest-tag">Usher</span><span class="interest-tag">Beyoncé</span><span class="interest-tag">Mariah Carey</span><span class="interest-tag">Grown and sexy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DUTTY WINE ──────────────────────────────────────────────────────── -->
+  <div class="event-section" id="ev-dutty">
+    <div class="event-header">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:4px">Event 04</div>
+        <div class="event-title">Dutty Wine Caribbean Party</div>
+      </div>
+      <div class="event-budget" style="color:var(--green)">$250</div>
+    </div>
+    <div class="event-info-grid">
+      <div class="info-card"><div class="label">Date & Time</div><div class="value">Sunday, July 5 · 4PM–9PM</div></div>
+      <div class="info-card"><div class="label">Venue</div><div class="value">Alibi Patio & Garden · 4809 Wilkinson Blvd</div></div>
+      <div class="info-card"><div class="label">Ticket Link</div><div class="value" style="font-size:11px;word-break:break-all"><a href="https://posh.vip/e/704ever-weekend-2026-7-9-1-0" style="color:var(--orange)">posh.vip/e/704ever-weekend-2026-7-9-1-0</a></div></div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 1 — Broad</div><span class="adset-badge badge-broad">Advantage+</span><span style="font-size:12px;color:var(--muted)">$90 · Jun 28 – Jul 5 · Age 21–40 · 40mi</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Advantage+ Audience. Location: Charlotte, NC 40mi radius (wider net for Caribbean diaspora). Age: 21–40.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Flyer (Static)</span><span class="ad-type-badge type-flyer">Flyer · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Charlotte's most authentic Caribbean day party is back. And we saved the best for last. 🏝️
+
+DUTTY WINE closes out 704 Summer Classic Weekend on July 5 — outside, flags up, waistlines moving, no breaks.
+
+We're flying in Toronto's own DJ Rennie for his Charlotte debut. Exclusively at Dutty Wine.
+
+Sunday, July 5 | 4PM–9PM | Alibi Patio & Garden
+
+Tickets on Posh now.<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">Outside. Flags up. Waistlines moving. No breaks. 🏝️ Dutty Wine closes out 704 Summer Classic Weekend on July 5. Charlotte's most authentic Caribbean day party — featuring Toronto's DJ Rennie making his Charlotte debut. Sunday, July 5 | 4PM | Alibi. Tickets on Posh.</div>
+                <div class="alt-item">Every Dutty Wine has packed out. Every. Single. One. 🏝️ July 5 | 4PM–9PM | Alibi Patio & Garden Charlotte. We're flying in DJ Rennie from Toronto for his Charlotte debut. Dancehall • Soca • Kompa. Tickets on Posh now.</div>
+                <div class="alt-item">From Jamaica to Haiti, Trinidad, Guyana, Barbados — all flags welcome. 🏝️ Dutty Wine Caribbean Party | July 5 | 4PM | Alibi Charlotte. Charlotte's biggest Caribbean day party closes out the holiday weekend. Tickets on Posh.</div>
+                <div class="alt-item">Charlotte's Caribbean party just got bigger. 🏝️ Dutty Wine | July 5 | 4PM–9PM | Alibi Patio & Garden. Dancehall • Soca • Kompa. DJ Rennie flying in from Toronto. Every show packs out. Tickets available now.</div>
+                <div class="alt-item">The grand finale of 704 Summer Classic Weekend. 🏝️ Dutty Wine Caribbean Party | Sunday, July 5 | 4PM | Alibi Charlotte. Outside. Culture. Movement. The biggest Caribbean lineup we've ever put together. Tickets on Posh.</div>
+              </div>
+            </div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Dutty Wine Is Back July 5 🏝️<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">Sunday, July 5 | 4PM–9PM | Alibi Patio & Garden | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 2 — 30 Sec Hype Reel</span><span class="ad-type-badge type-reel">Boost Existing Post</span></div>
+          <div class="ad-body"><div class="note-block">Boost existing Instagram post. No additional copy required.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 2 — Core</div><span class="adset-badge badge-core">Interest Based</span><span style="font-size:12px;color:var(--muted)">$110 · Jun 29 – Jul 5 · Age 21–40 · 50mi</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Saved Audience — Interests: Dancehall, Soca, Kompa, Reggae, Caribbean culture, Jamaican culture, Haitian culture, West Indian culture, Afrobeats, Day parties. Age: 21–40. Charlotte, NC 50mi (cast wide for Caribbean diaspora).</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Flyer (Static)</span><span class="ad-type-badge type-flyer">Flyer · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">This one's for the people who actually come to dance. 🏝️
+
+Dutty Wine Caribbean Party returns July 5 — outside, flags waving, waistlines moving, and Charlotte's biggest Caribbean lineup yet.
+
+We're flying in DJ Rennie from Toronto for his Charlotte debut. Exclusively at Dutty Wine.
+
+Sunday, July 5 | 4PM–9PM | Alibi Patio & Garden, Charlotte
+
+Dancehall • Soca • Kompa. Tickets on Posh.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">For Those Who Come to Dance 🏝️<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">Sunday, July 5 | 4PM–9PM | Alibi Patio & Garden | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 2 — Short Event Clip</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">This is what Dutty Wine feels like. 🏝️
+
+Outside. Flags up. Waistlines moving. Charlotte's most authentic Caribbean day party closes out 704 Summer Classic Weekend on July 5.
+
+Sunday, July 5 | 4PM–9PM | Alibi Patio & Garden. Tickets on Posh.<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">Outside. Flags Up. No Breaks. 🏝️<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">July 5 | 4PM–9PM | Alibi Patio & Garden | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="adset">
+      <div class="adset-header" onclick="toggleAdset(this)">
+        <div style="display:flex;align-items:center;gap:12px"><div class="adset-title">Ad Set 3 — Warm Retarget</div><span class="adset-badge badge-retarget">Custom Audience</span><span style="font-size:12px;color:var(--muted)">$50 · Jul 2 – Jul 5</span></div>
+        <div class="adset-chevron">▼</div>
+      </div>
+      <div class="adset-body">
+        <div class="targeting-block"><div class="label">Targeting</div><p>Custom Audiences: IG visitors (30d), video viewers 50%+, Posh link clicks, BLT post engagement. Age: 21–40.</p></div>
+        <div class="ad-block">
+          <div class="ad-header" onclick="toggleAd(this)"><span class="ad-name">Ad 1 — Short Clip (Urgency)</span><span class="ad-type-badge type-video">Video · Ready</span></div>
+          <div class="ad-body">
+            <div class="copy-field"><div class="copy-label">Primary Text</div><div class="copy-main" style="position:relative">Charlotte's most authentic Caribbean day party is this Sunday and every Dutty Wine packs out. 🏝️ Dutty Wine Caribbean Party | July 5 | 4PM–9PM | Alibi Patio & Garden. DJ Rennie flying in from Toronto for his Charlotte debut. Dancehall • Soca • Kompa. Get your ticket now before it's gone.<button class="copy-btn" onclick="copyText(this)">Copy</button></div>
+              <span class="alts-toggle" onclick="toggleAlts(this)">+ Show 5 alternatives</span>
+              <div class="alts-list">
+                <div class="alt-item">Sunday at Alibi is going to be historic and tickets won't last. 🏝️ Dutty Wine | July 5 | 4PM | Charlotte. DJ Rennie making his Charlotte debut. Outside. Flags up. No breaks. Charlotte's biggest Caribbean lineup yet — grab your ticket on Posh now.</div>
+                <div class="alt-item">Every Dutty Wine has packed out without exception. July 5 will be no different. 🏝️ Dutty Wine Caribbean Party | Sunday, July 5 | 4PM–9PM | Alibi Charlotte. Dancehall • Soca • Kompa. Don't wait until it's sold out — secure your spot now on Posh.</div>
+                <div class="alt-item">Outside. Sun out. Flags waving. Waistlines moving. And Alibi is going to be full. 🏝️ Dutty Wine | July 5 | 4PM | Charlotte. DJ Rennie from Toronto making his CLT debut alongside Bloc, Jordan, and Ganjafingaz. Tickets on Posh — get yours before they're gone.</div>
+                <div class="alt-item">The grand finale of 704 Summer Classic Weekend is this Sunday and it's almost sold out. 🏝️ Dutty Wine Caribbean Party | July 5 | 4PM–9PM | Alibi Patio & Garden. Charlotte's most authentic Caribbean day party. Prices go up at the door — grab your ticket now.</div>
+                <div class="alt-item">DJ Rennie is flying in from Toronto just for this. Charlotte, don't let this one sell out on you. 🏝️ Dutty Wine | Sunday, July 5 | 4PM | Alibi Charlotte. Dancehall • Soca • Kompa. The whole Caribbean diaspora is coming out. Tickets on Posh — lock in your spot now.</div>
+              </div>
+            </div>
+            <div class="copy-field"><div class="copy-label">Headline</div><div class="copy-main" style="position:relative">This Sunday — Dutty Wine 🏝️<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+            <div class="copy-field"><div class="copy-label">Description</div><div class="copy-main" style="position:relative">Sunday, July 5 | 4PM–9PM | Alibi Charlotte | Tickets on Posh<button class="copy-btn" onclick="copyText(this)">Copy</button></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="interests-section">
+      <h3>Saved Audience — Suggested Interests (Core Ad Set)</h3>
+      <div class="interests-grid">
+        <span class="interest-tag">Dancehall music</span><span class="interest-tag">Soca music</span><span class="interest-tag">Kompa</span><span class="interest-tag">Caribbean culture</span><span class="interest-tag">Reggae</span><span class="interest-tag">Afrobeats</span><span class="interest-tag">Charlotte nightlife</span><span class="interest-tag">Day parties</span><span class="interest-tag">Caribbean food</span><span class="interest-tag">Jamaican culture</span><span class="interest-tag">Haitian culture</span><span class="interest-tag">West Indian culture</span><span class="interest-tag">DJ Rennie</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function showEvent(key, btn) {
+  document.querySelectorAll('.event-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.event-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('ev-' + key).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleAdset(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.adset-chevron');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+function toggleAd(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function toggleAlts(toggle) {
+  const list = toggle.nextElementSibling;
+  const isOpen = list.classList.toggle('open');
+  toggle.textContent = isOpen ? '− Hide alternatives' : '+ Show 5 alternatives';
+}
+
+function copyText(btn) {
+  const block = btn.parentElement;
+  const text = block.textContent.replace('Copy', '').replace('Copied!', '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
